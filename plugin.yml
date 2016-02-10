@@ -4,6 +4,6 @@ author: aDevPE/aDevPE
 version: 1.0
 main: DeathMSG\Main
 api: [1.0.0]
-Dependency: EconomyAPI
+Dependency: DevTools
 website: https://github.com/ArabDevPE/DeathMSG
 
