@@ -23,7 +23,7 @@ use pocketmine\Server;
 use pocketmine\math\Vector3;
 use pocketmine\level\sound\ClickSound;
 use pocketmine\level\sound\LaunchSound;
-class Main extends \pocketmine\plugin\PluginBase implements \pocketmine\event\Listener {
+class Main extends PluginBase implements Listener {
  
     
 
@@ -35,18 +35,18 @@ class Main extends \pocketmine\plugin\PluginBase implements \pocketmine\event\Li
            
     }
     
-    public function onDeath(\pocketmine\event\player\PlayerDeathEvent $event)  {
+    public function onDeath(PlayerDeathEvent $event)  {
         $cause = $event->getEntity()->getLastDamageCause();
-        if($cause instanceof \pocketmine\event\entity\EntityDamageByEntityEvent) {
+        if($cause instanceof EntityDamageByEntityEvent) {
             $player = $event->getEntity();
             $killer = $cause->getDamager();
  $p = $event->getEntity();
-             if ($killer instanceof \pocketmine\Player){
+             if ($killer instanceof Player){
                   $click = new ClickSound($killer);
                   $Launch = new LaunchSound($player);
      
-                  $player->sendMessage(\pocketmine\utils\TextFormat::DARK_RED." You killed by ". \pocketmine\utils\TextFormat::RED.$killer->getName().\pocketmine\utils\TextFormat::DARK_RED." with " . \pocketmine\utils\TextFormat::YELLOW.$killer->getHealth().\pocketmine\utils\TextFormat::DARK_RED." Hearts remining! ");
-                  $killer->sendMessage(\pocketmine\utils\TextFormat::GREEN." You killed ". \pocketmine\utils\TextFormat::DARK_AQUA.$player->getName(). \pocketmine\utils\TextFormat::GREEN. " with" . \pocketmine\utils\TextFormat::YELLOW.$killer->getHealth(). \pocketmine\utils\TextFormat::GREEN." Hearts remining! ");
+                  $player->sendPopup(TextFormat::DARK_RED." You killed by ". TextFormat::DARK_RED.$killer->getName().  TextFormat::DARK_RED." with " . TextFormat::YELLOW.$killer->getHealth().  TextFormat::DARK_RED." Hearts remeining! ");
+                  $killer->sendPopup(TextFormat::GREEN." You killed ". TextFormat::DARK_AQUA.$player->getName(). TextFormat::GREEN. " with" . TextFormat::YELLOW.$killer->getHealth(). TextFormat::GREEN." Hearts remeining! ");
                   $player->getLevel()->addSound($Launch);
                   $killer->getLevel()->addSound($click);
              $killer->setHealth($killer->setMaxHealth());
