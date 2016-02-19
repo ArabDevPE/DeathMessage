@@ -47,6 +47,7 @@ class Main extends PluginBase implements Listener {
      
                   $player->sendTip(TextFormat::DARK_RED." You killed by ". TextFormat::DARK_RED.$killer->getName().  TextFormat::DARK_RED." with " . TextFormat::YELLOW.$killer->getHealth().  TextFormat::DARK_RED." Hearts remeining! ");
                   $killer->sendTip(TextFormat::GREEN." You killed ". TextFormat::DARK_AQUA.$player->getName(). TextFormat::GREEN. " with" . TextFormat::YELLOW.$killer->getHealth(). TextFormat::GREEN." Hearts remeining! ");
+              $killer->getLevel()->addParticle(new LavaDripParticle(self::randVector($entity),(mt_rand()/mt_getrandmax())*2));    
                   $player->getLevel()->addSound($Launch);
                   $killer->getLevel()->addSound($click);
              $killer->setHealth($killer->setMaxHealth());
