@@ -1,5 +1,5 @@
 <?php
-namespace DeathMSG;
+namespace FFA;
 
 use pocketmine\network\protocol\AddEntityPacket;
 use pocketmine\network\protocol\SetTimePacket;
@@ -45,14 +45,13 @@ class Main extends PluginBase implements Listener {
                   $click = new ClickSound($killer);
                   $Launch = new LaunchSound($player);
      
-                  $player->sendTip(TextFormat::DARK_RED." You killed by ". TextFormat::DARK_RED.$killer->getName().  TextFormat::DARK_RED." with " . TextFormat::YELLOW.$killer->getHealth().  TextFormat::DARK_RED." Hearts remeining! ");
-                  $killer->sendTip(TextFormat::GREEN." You killed ". TextFormat::DARK_AQUA.$player->getName(). TextFormat::GREEN. " with" . TextFormat::YELLOW.$killer->getHealth(). TextFormat::GREEN." Hearts remeining! ");
+                  $player->sendTip(TextFormat::DARK_RED."You've been killed by " .TextFormat::DARK_GRAY. $killer->getName(). TextFormat::DARK_AQUA. "with ". TextFormat::YELLOW. $killer->getHealth(). TextFormat::DARK_AQUA. "Hearts Remining! ");
+                  $killer->sendTip(TextFormat::DARK_RED."You killed  " .TextFormat::DARK_GRAY. $player->getName(). TextFormat::DARK_AQUA. "with ". TextFormat::YELLOW. $killer->getHealth(). TextFormat::DARK_AQUA. "Hearts Remining! ");
                   $player->getLevel()->addSound($Launch);
                   $killer->getLevel()->addSound($click);
-             $killer->setHealth($killer->setMaxHealth());
-            
+             $killer->setHealth($killer->setMaxHealth()); }
 		}
             }
         }
 
-}
+
