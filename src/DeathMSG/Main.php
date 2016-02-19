@@ -1,5 +1,5 @@
 <?php
-namespace FFA;
+namespace DeathMSG;
 
 use pocketmine\network\protocol\AddEntityPacket;
 use pocketmine\network\protocol\SetTimePacket;
