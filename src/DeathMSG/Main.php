@@ -13,7 +13,7 @@ use pocketmine\nbt\tag\IntTag;
 use pocketmine\math\AxisAlignedBB;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use pocketmine\utils\TextFormat as TFX;
+use pocketmine\utils\TextFormat as TF;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\Player;
